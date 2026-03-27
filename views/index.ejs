@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Recipes</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 350px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            width: 70%;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff4757;
+        }
+
+        select {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .list {
+            margin-top: 20px;
+        }
+
+        .list div {
+            margin: 8px 0;
+        }
+
+        .list a {
+            color: black;
+        }
+
+        .list a:hover {
+            color: #ff6b6b;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+       <h2>Search Recipes</h2>
+
+<select onchange="goToRecipe(this.value)">
+    <option value="">Select Recipe</option>
+    <% recipes.forEach(r => { %>
+        <option value="<%= r.id %>"><%= r.title %></option>
+    <% }) %>
+</select>
+
+<script>
+function goToRecipe(id) {
+    if (id) {
+        window.location.href = "/recipe/" + id;
+    }
+}
+</script>
+
+<br><br>
+
+<a href="/upload"></a>
+</body>
+</html>
